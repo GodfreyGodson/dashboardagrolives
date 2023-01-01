@@ -24,7 +24,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `/api/login`,
+      `http://backend.dirmagrolives.co.tz/api/login`,
       { email, password },
       config
     );
@@ -61,7 +61,7 @@ if(userInfo.data.token){
    },
  };
 
- const { data } = await axios.get(`/api/users`, config);
+ const { data } = await axios.get(`http://backend.dirmagrolives.co.tz/api/users`, config);
   
  dispatch({ type: USER_LIST_SUCCESS, payload: data.data });
 
@@ -100,7 +100,7 @@ if(userInfo.data.token){
    },
  };
 
- const { data } = await axios.get(`/api/user/${id}`, config);
+ const { data } = await axios.get(`http://backend.dirmagrolives.co.tz/api/user/${id}`, config);
   
  dispatch({ type: USER_BYID_SUCCESS, payload: data.data });
 
