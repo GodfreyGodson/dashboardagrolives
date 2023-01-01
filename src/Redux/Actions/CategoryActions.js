@@ -24,7 +24,7 @@ export const createCategory = (categoryName, categoryDescription,  categoryImage
    formData.append('categoryDescription', categoryDescription);
    formData.append('categoryImage', categoryImage);
 
- const {data} =  await axios.post(`/api/category/`, formData, config);
+ const {data} =  await axios.post(`http://backend.dirmagrolives.co.tz/api/category/`, formData, config);
     
    dispatch({ type: CATEGORY_CREATE_SUCCESS, payload:data });
  
@@ -64,7 +64,7 @@ export const listCategories = () => async (dispatch, getState) => {
      },
    };
  
-   const { data } = await axios.get(`/api/categories`, config);
+   const { data } = await axios.get(`http://backend.dirmagrolives.co.tz/api/categories`, config);
     
    dispatch({ type: CATEGORY_LIST_SUCCESS, payload: data.data });
  
@@ -104,7 +104,7 @@ export const deleteCategory = (categoryId) => async (dispatch, getState) => {
      },
    };
  
-   await axios.delete(`/api/category/${categoryId}`, config);
+   await axios.delete(`http://backend.dirmagrolives.co.tz/api/category/${categoryId}`, config);
     
    dispatch({ type: CATEGORY_DELETE_SUCCESS });
  
@@ -132,7 +132,7 @@ export const deleteCategory = (categoryId) => async (dispatch, getState) => {
 export const editCategory = (categoryId) => async (dispatch) => {
   try {
     dispatch({ type: CATEGORY_EDIT_REQUEST });
-    const { data } = await axios.get(`/api/category/${categoryId}`);
+    const { data } = await axios.get(`http://backend.dirmagrolives.co.tz/api/category/${categoryId}`);
     dispatch({ type: CATEGORY_EDIT_SUCCESS, payload: data });
   }catch (error) {
     const message =
