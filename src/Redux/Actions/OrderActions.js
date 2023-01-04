@@ -18,7 +18,7 @@ export const listOrders = () => async (dispatch, getState) => {
      },
    };
  
-   const { data } = await axios.get(`http://backend.dirmagrolives.co.tz/api/order`, config);
+   const { data } = await axios.get(`/api/order`, config);
    console.log(data);
     
    dispatch({ type: ORDER_LIST_SUCCESS, payload: data });
