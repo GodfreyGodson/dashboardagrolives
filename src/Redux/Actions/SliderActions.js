@@ -25,7 +25,7 @@ export const createSlider = (sliderName, sliderDescription,  sliderImage) => asy
    formData.append('sliderDescription', sliderDescription);
    formData.append('sliderImage', sliderImage);
  
- const {data} =  await axios.post(`http://backend.dirmagrolives.co.tz/api/slider/`,  formData, config);
+ const {data} =  await axios.post(`/api/slider/`,  formData, config);
     
    dispatch({ type: SLIDER_CREATE_SUCCESS, payload:data });
  
@@ -67,7 +67,7 @@ export const listSliders = () => async (dispatch, getState) => {
 
    
  
-   const { data } = await axios.get(`http://backend.dirmagrolives.co.tz/api/sliders`, config);
+   const { data } = await axios.get(`/api/sliders`, config);
     
    dispatch({ type: SLIDER_LIST_SUCCESS, payload: data.data });
  
@@ -107,7 +107,7 @@ export const deleteSlider = (sliderId) => async (dispatch, getState) => {
      },
    };
  
-   await axios.delete(`http://backend.dirmagrolives.co.tz/api/slider/${sliderId}`, config);
+   await axios.delete(`/api/slider/${sliderId}`, config);
     
    dispatch({ type: SLIDER_DELETE_SUCCESS });
  
