@@ -25,7 +25,7 @@ export const createSlider = (sliderName, sliderDescription,  sliderImage) => asy
    formData.append('sliderDescription', sliderDescription);
    formData.append('sliderImage', sliderImage);
  
- const {data} =  await axios.post(`/api/slider/`,  formData, config);
+ const {data} =  await axios.post(`http://backend.dirmagrolives.co.tz/api/slider/`,  formData, config);
     
    dispatch({ type: SLIDER_CREATE_SUCCESS, payload:data });
  

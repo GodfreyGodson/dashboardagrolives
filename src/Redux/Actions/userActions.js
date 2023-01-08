@@ -25,6 +25,7 @@ export const login = (email, password) => async (dispatch) => {
 
     const { data } = await axios.post(
       `http://backend.dirmagrolives.co.tz/api/login`,
+      { withCredentials: false },
       { email, password },
       config
     );
