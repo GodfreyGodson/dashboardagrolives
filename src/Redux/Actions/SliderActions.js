@@ -67,7 +67,7 @@ export const listSliders = () => async (dispatch, getState) => {
 
    
  
-   const { data } = await axios.get(`/api/sliders`, config);
+   const { data } = await axios.get(`http://backend.dirmagrolives.co.tz/api/sliders`, config);
     
    dispatch({ type: SLIDER_LIST_SUCCESS, payload: data.data });
  
@@ -107,7 +107,7 @@ export const deleteSlider = (sliderId) => async (dispatch, getState) => {
      },
    };
  
-   await axios.delete(`/api/slider/${sliderId}`, config);
+   await axios.delete(`http://backend.dirmagrolives.co.tz/api/slider/${sliderId}`, config);
     
    dispatch({ type: SLIDER_DELETE_SUCCESS });
  
@@ -137,7 +137,7 @@ export const deleteSlider = (sliderId) => async (dispatch, getState) => {
 export const editCategory = (categoryId) => async (dispatch) => {
   try {
     dispatch({ type: CATEGORY_EDIT_REQUEST });
-    const { data } = await axios.get(`/api/category/${categoryId}`);
+    const { data } = await axios.get(`http://backend.dirmagrolives.co.tz/api/category/${categoryId}`);
     dispatch({ type: CATEGORY_EDIT_SUCCESS, payload: data });
   }catch (error) {
     const message =
