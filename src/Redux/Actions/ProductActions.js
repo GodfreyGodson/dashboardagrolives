@@ -20,7 +20,7 @@ export const listProducts = () => async (dispatch, getState) => {
      },
    };
  
-   const { data } = await axios.get(`/api/products`, config);
+   const { data } = await axios.get(`http://backend.dirmagrolives.co.tz/api/products`, config);
     
    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data.data });
  
@@ -60,7 +60,7 @@ export const deleteProduct = (productId) => async (dispatch, getState) => {
      },
    };
  
-   await axios.delete(`/api/product/${productId}`, config);
+   await axios.delete(`http://backend.dirmagrolives.co.tz/api/product/${productId}`, config);
     
    dispatch({ type: PRODUCT_DELETE_SUCCESS });
  
@@ -116,7 +116,7 @@ if(userInfo.data.token){
  formData.append('productSKU', productSKU);
  formData.append('stockStatus', stockStatus);
 
-const {data} =  await axios.post(`/api/product/`, formData, config);
+const {data} =  await axios.post(`http://backend.dirmagrolives.co.tz/api/product/`, formData, config);
   
  dispatch({ type: PRODUCT_CREATE_SUCCESS, payload:data });
 
